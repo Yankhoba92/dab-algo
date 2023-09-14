@@ -51,3 +51,23 @@ Le client récupére sa carte bancaire
 Le client récupére l'argent du distributeur
 Fin du programme
 ```
+
+
+
+
+
+Utilisateur
+Calcul
+
+L'utilisateur saisie la donnée A
+L'utilisateur saisie l'opérateur de calcul
+L'utilisateur saisie la donnée B
+
+    Ccalcul
+    Let A
+    Let B
+    
+    let Operateur
+
+    "result"
+

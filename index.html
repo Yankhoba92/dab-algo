@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Variables 
+        const clientBalance = 1200
+        const atmBalance = 1200
+        const passCard = 9513
+        let card = 1
+
+
+        // Functions
+        /*
+        Type de cartes de l'app
+        1 : CB Valide
+        2 : CB Non valide
+        3 :  CB Bloquée        
+        */
+        function cardChecker (){
+            if (card === 2) {
+                document.querySelector(body).innerHTML("Non valide")
+            }else if (card === 3 ){
+                document.querySelector(body).innerHTML("CB Bloquée")
+            }
+            else {
+                passChecker()
+            }
+        
+        }
+
+        function passChecker (){
+            document.querySelector(body).innerHML("CB Valide")
+
+        }
+
+        function amountChoice (){
+
+        }
+
+
+        
+        // App
+
+
+
+
+
+    </script>
+</body>
+</html>
