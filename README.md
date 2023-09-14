@@ -20,7 +20,7 @@ Le processus de vérification de la carte est lancé
         Lancer la demande du code de la carte
 Le distributeur affiche un message "demandant le code de la carte"
 Le client tape un code
-    SI le code ezst incorrect 
+    SI le code est incorrect 
         ALORS le distributeur affiche un message "code incorrect"
         ET le compteur de tentative est in crémenté de 1
         SI le compteur de tenetative est égal à 3
