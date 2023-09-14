@@ -1,55 +1,89 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
+    <h1 align =" center"> Retrait DAB</h1>
+    <p align =" center">Veuillez cliquer sur le bouton ci-dessous pour retirer l'argent</p>
+    <buttoN onclick="cardChecker()" type="button"> Commencer</button>
+    <div class="app"></div>
+
     <script>
-        // Variables 
+        // Variables
         const clientBalance = 1200
         const atmBalance = 1200
         const passCard = 9513
-        let card = 1
-
+        const app = document.querySelector(".app")
 
         // Functions
         /*
-        Type de cartes de l'app
-        1 : CB Valide
-        2 : CB Non valide
-        3 :  CB Bloquée        
+            Type de cartes de l'app :
+            1 : CB Valide
+            2 : CB Bloquée
+            3 : CB Non valide
         */
-        function cardChecker (){
-            if (card === 2) {
-                document.querySelector(body).innerHTML("Non valide")
-            }else if (card === 3 ){
-                document.querySelector(body).innerHTML("CB Bloquée")
+
+        // Tout ce qui n'est pas un nombre et qui est au dessus de  3
+        function cardChecker() {
+            // if (typeof(card) == 'number' && (card <= 3 || card >= 4)) {
+            // Méthode Alex      if (card === 2 || card === 1) {
+            //     if (card === 2) {
+            //         app.innerText='CB Bloquée'
+            //     } else {
+            //         app.innerText='CB Valide'
+            //         passChecker()
+            //     }
+            // }
+            // else {
+            //     app.innerText='CB Non valide'
+
+            // }
+
+            // Méthode François
+        
+            if (card === 2 || card != 1) {
+                let card = parseInt(prompt('Choisissez une carte : 1, 2 ou 3'))
+
+                if (card === 2) {
+                    app.innerText = 'CB Bloquée'
+                } else {
+                    app.innerText = 'CB Non valide'
+                }
             }
             else {
                 passChecker()
             }
-        
+        }
+            /*
+            Cette fonction permet de vérifier la validité de la carte
+            A l'aide d'une condition nous allons vérifier que la carte est 2 ou 1. Tous les autres scénario seront " CB Non vallide"
+            Lorsque le resultat est 1 on lance la fonction choisir le montant
+            */
+        function passChecker() {
+            app.innerText = 'CB Valide'
+            for (let index = 0; index < 3; index++) {
+                let passPrompt = parseInt(prompt('Saisissez votre code'))
+                if (passPrompt === passCard) {
+                    index = 3
+                    amountChoice()
+                }
+            }
         }
 
-        function passChecker (){
-            document.querySelector(body).innerHML("CB Valide")
-
+        function amountChoice() {
+            app.innerText = 'Combien voulez-vous retirer ?' 
         }
 
-        function amountChoice (){
-
-        }
-
-
-        
         // App
-
-
-
-
+    
 
     </script>
 </body>
+
 </html>
