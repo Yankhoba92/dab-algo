@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 align="center">Bienvenu dans notre page Candidature</h1>
+      <div class="optionInformation">
+        <h2 align="center"><label for="Filiaire">Choisissez votre formation</label></h2>
+        <form action="">
+          <select name="formation" id="formation">
+            <option value="">--Les formations disponibles--</option>
+            <option value="dwwb">Développeur Web et Web Mobile</option>
+            <option value="cda">Concepteur Développeur D'applications</option>
+            <option value="wd">Webdesigner</option>
+            <option value="Rs">Référencement SEO</option>
+          </select>
+
+        </form>
+      </div>
+       
+        
+        <button type="submit" id="subOptions" onclick="checkFormation()">Submit</button>
+
+      <form name="monformulaire1" action="" method="post" onSubmit="return Verification()" id ="formInfos">
+        <h2 align="center"><label for="Filiaire">Vos informations</label></h2>
+        <!-- Grid -->
+        <div class="grid">
+
+          <label for="Prénom">
+            Votre Prénom *
+            <input type="text" id="idPrenom" name="Prenom" placeholder="Votre Prénom *" required>
+          </label>
+
+          <label for="Nom">
+            Votre Nom *
+            <input type="text" id="idNom" name="Nom" placeholder="Votre Nom *" required>
+          </label>
+        
+        </div>
+        <div class="grid">
+            <label for="email">Votre mail *
+                <input type="email" id="idEmail" name="email" placeholder="Votre mail *" required>
+            </label>
+            <label for="phone">Votre Téléphone
+                <input type="tel" id="idPhone" name="phone" placeholder="0604050107" required>
+            </label>
+        </div>
+        <button type="submit">Submit</button>
+      </form>   
+    </div>
+    <script>
+let elements = document.getElementById('formation')
+let Formulaire_infos = document.getElementById('formInfos')
+//  console.log(elements.options)
+
+        function checkFormation() {
+        console.log(elements.selectedIndex)
+          if (elements.selectedIndex ===0) {
+            alert('Veuillez choisir une formation svp')
+            Formulaire_infos.style.display="none"
+          } else {
+            Formulaire_infos.style.display="inline"
+          }
+          
+        }
+
+        function validateEmail(email) {
+        let re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+        return re.test(email);
+        }
+        
+        function Verification() {
+        // Récupérer la valeur des champs nom et email
+        let Nom = document.getElementById('idNom').value;
+        let Prenom = document.getElementById('idPrenom').value;
+        let Email = document.getElementById('idEmail').value;
+        let Phone = document.getElementById('idPhone').value
+        
+        // Contrôle sur le nom
+        if(Nom==''){
+        alert('Vous devez compléter votre nom !');
+        document.getElementById('idNom').style.backgroundColor="red";
+        document.getElementById('idNom').style.color="#FFF";
+        
+        // Permet de bloquer l'envoi du formulaire
+        return false;
+        }
+        else{
+        document.getElementById('idNom').style.backgroundColor="#9C6";
+        }
+        
+        // Contrôle sur l'email
+        if(Email=='') {
+        alert('Vous devez compléter votre adresse email');
+        document.getElementById('idEmail').style.backgroundColor="red";
+        document.getElementById('idEmail').style.color="#FFF";
+        return false;
+        }
+        
+        else{
+        document.getElementById('idEmail').style.backgroundColor="#9C6";
+        }
+        }
+        </script>
+    
+</body>
+</html>
